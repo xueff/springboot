@@ -1,0 +1,6 @@
+﻿{
+    "isQA": true,
+    "nsqAdminUrl": "http://192.168.2.206:4171",
+    "nsqOuterUrl": "http://192.168.2.206:4151/pub?topic=",
+    "nSQLookupAdr": "http://192.168.2.206:4161"
+}
