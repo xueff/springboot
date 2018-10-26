@@ -23,6 +23,7 @@ import java.util.Map;
  * @Description: ${todo}
  * @date 2018/9/2516:59
  */
+
 /**
  * 注入JPA:
  * entityManagerFactory :  entityManagerFactorySecondary
@@ -32,9 +33,9 @@ import java.util.Map;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef="entityManagerFactorySecondary",
-        transactionManagerRef="transactionManagerSecondary",
-        basePackages= {"study.springboot.myspringboot.bean.pms"}) //设置Repository所在位置
+        entityManagerFactoryRef = "entityManagerFactorySecondary",
+        transactionManagerRef = "transactionManagerSecondary",
+        basePackages = {"study.springboot.myspringboot.bean.pms"}) //设置Repository所在位置
 public class PMSConfig {
 
     /**
@@ -47,7 +48,8 @@ public class PMSConfig {
 
     /**
      * 创建 EntityManager :
-     *      根据EntityManagerFactoryBuilder 创建 EntityManager
+     * 根据EntityManagerFactoryBuilder 创建 EntityManager
+     *
      * @param builder EntityManagerFactoryBuilder
      * @return
      */
@@ -58,11 +60,12 @@ public class PMSConfig {
 
     /**
      * 根据当前数据源配置,创建entityManagerFactory
+     *
      * @param builder
      * @return
      */
     @Bean(name = "entityManagerFactorySecondary")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary (EntityManagerFactoryBuilder builder) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary(EntityManagerFactoryBuilder builder) {
         return builder
                 .dataSource(pmsDataSource)
                 .properties(getVendorProperties(pmsDataSource))
@@ -75,13 +78,14 @@ public class PMSConfig {
     private JpaProperties jpaProperties;
 
     private Map<String, String> getVendorProperties(DataSource dataSource) {
-        return  null;
+        return null;
 //        return jpaProperties.getHibernatePropertie
 // s(dataSource);
     }
 
     /**
      * 根据entityManagerFactory(entityManagerFactorySecondary)生成transactionManager(transactionManagerSecondary)
+     *
      * @param builder PlatformTransactionManager
      * @return
      */

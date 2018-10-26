@@ -24,7 +24,7 @@ public class MultiDataSourceConfig {
     //数据源1-引用配置:spring.datasource.primary
     @Bean(name = "pmsDataSource")
     @Qualifier("pmsDataSource")
-    @ConfigurationProperties(prefix="spring.datasource.pms")
+    @ConfigurationProperties(prefix = "spring.datasource.pms")
     public DataSource pmsDataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -33,7 +33,7 @@ public class MultiDataSourceConfig {
     @Bean(name = "mtsDataSource")
     @Qualifier("mtsDataSource")
     @Primary
-    @ConfigurationProperties(prefix="spring.datasource.mts")
+    @ConfigurationProperties(prefix = "spring.datasource.mts")
     public DataSource mtsDataSource() {
         return DataSourceBuilder.create().build();
     }

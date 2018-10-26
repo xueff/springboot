@@ -1,4 +1,5 @@
 package study.springboot.myspringboot.controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

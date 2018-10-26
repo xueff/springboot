@@ -15,7 +15,7 @@ public class Device implements Serializable {
     private static final long serialVersionUID = 1L;
     private String path;
     private long timestamp;
-    private Map<String,Object> status = new HashMap<>();
+    private Map<String, Object> status = new HashMap<>();
 
     public String getPath() {
         return path;

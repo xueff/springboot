@@ -10,8 +10,8 @@ import java.text.DecimalFormat;
  * @date 2018/9/2121:31
  */
 public class NumberUtils {
-    public static double keep2DecimalPlaces(Double value){
-        DecimalFormat df   = new DecimalFormat("######0.00");
+    public static double keep2DecimalPlaces(Double value) {
+        DecimalFormat df = new DecimalFormat("######0.00");
         return Double.valueOf(df.format(value));
     }
 }

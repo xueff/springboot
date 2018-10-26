@@ -1,11 +1,16 @@
-package study.springboot.myspringboot;
+package com.example.databasesql;
 
+import com.example.databasesql.mts.HotelRoom;
+import com.example.databasesql.mts.HotelRoomRepository;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -21,11 +26,20 @@ import java.util.Map;
  * @Description: ${todo}
  * @date 2018/9/2122:05
  */
-public class SQLServerTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = DatabaseSqlApplication.class)
+public class SQLServerApplicationTests  {
     @Autowired
     DataSource dataSource;
     @Autowired
     public JdbcTemplate jdbcTemplate;
+    @Autowired
+    HotelRoomRepository repository;
+    @Test
+    public void getBean() throws SQLException {
+        HotelRoom r = repository.findFirstByHotelMainIdAndRoomNo("26def324-c051-4626-b762-7815ee44cec4","101");
+        System.out.println(r.getHotelMainId());
+    }
 
     @Test
     public void sqlServerConnectTest() throws SQLException {
@@ -68,4 +82,7 @@ public class SQLServerTest {
         });
         System.out.println(resultList.get(0));
     }
+    
+
+
 }

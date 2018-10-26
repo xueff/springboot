@@ -22,7 +22,7 @@ public class NSQTests {
     public void sendTo() {
         NSQProducer producer = new NSQProducer();
         //        ip地址和端口号
-        producer.addAddress("192.168.2.206",4150).start();
+        producer.addAddress("192.168.2.206", 4150).start();
         try {
             //            topic名称、发布的消息
             producer.produce("app.qa.roomstatussync", "123".getBytes());
@@ -39,15 +39,15 @@ public class NSQTests {
         lookup.addLookupAddress("192.168.2.206", 4161);
 
         String topic = "app.qa.roomstatussync";
-        NSQConsumer consumer = new NSQConsumer(lookup,topic, "channelName",(message) -> {
-            if (message != null && message.getMessage() != null && message.getMessage().length > 0)
-            {
+        NSQConsumer consumer = new NSQConsumer(lookup, topic, "channelName", (message) -> {
+            if (message != null && message.getMessage() != null && message.getMessage().length > 0) {
                 try {
                     byte[] by = message.getMessage();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            };
+            }
+            ;
         });
         consumer.start();
     }

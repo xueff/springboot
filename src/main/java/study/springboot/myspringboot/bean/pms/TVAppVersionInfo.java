@@ -15,22 +15,22 @@ import java.util.Date;
 public class TVAppVersionInfo {
     @Id
     @GeneratedValue
-    private int id ;
+    private int id;
     @Column(nullable = false)
-    private String packageName ;
+    private String packageName;
     @Column(nullable = false)
-    private int versionCode ;
+    private int versionCode;
     @Column(nullable = false)
-    private String versionName ;
+    private String versionName;
     @Column(nullable = false)
-    private String channelDataFilePath ;
+    private String channelDataFilePath;
     @Column(nullable = false)
-    private String createdBy ;
+    private String createdBy;
     @Column(nullable = false)
-    private Date createTime ;
+    private Date createTime;
     @Column(nullable = false)
-    private String updatedBy ;
-    private Date updateTime ;
+    private String updatedBy;
+    private Date updateTime;
 
     public int getId() {
         return id;

@@ -53,7 +53,7 @@ public class MongoTest {
 //                MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "DeviceStatus"));
 
         //long data = DateUtils.getDayBegin().getTime()/1000;
-        for(int i=1;i<10;i++){
+        for (int i = 1; i < 10; i++) {
 
             DeviceStatus de = new DeviceStatus();
             de.setType("hotel");
@@ -61,8 +61,8 @@ public class MongoTest {
             de.setBusiness(String.valueOf(i));
             List<Device> light = new ArrayList<>();
             Device dev = new Device();
-            dev.setPath("/.dentry/bb545405-85b0-4243-873d-a52cfdf14cac/101房间/床头灯"+i);
-            dev.setTimestamp(new Date().getTime()/1000);
+            dev.setPath("/.dentry/bb545405-85b0-4243-873d-a52cfdf14cac/101房间/床头灯" + i);
+            dev.setTimestamp(new Date().getTime() / 1000);
             light.add(dev);
             de.setLight(light);
 
@@ -74,9 +74,9 @@ public class MongoTest {
 //                                , new Update().push("Light",dev), "DeviceStatus");
 
 
-            mongoTemplate.updateFirst(Query.query(new Criteria("type").is("hotel12") .and("date").is("2018-08-49")
+            mongoTemplate.updateFirst(Query.query(new Criteria("type").is("hotel12").and("date").is("2018-08-49")
                             .and("business").is("1"))
-                    , new Update().push("Light",dev), "DeviceStatus");
+                    , new Update().push("Light", dev), "DeviceStatus");
 
             mongoTemplate.insert(de);
             Random random = new Random();
@@ -89,7 +89,7 @@ public class MongoTest {
 //                       System.out.println(JSONArray.fromObject(list).toString());
             long end = System.currentTimeMillis();
 
-            System.out.println(i+":"+(end-start));
+            System.out.println(i + ":" + (end - start));
         }
 
 
@@ -97,7 +97,7 @@ public class MongoTest {
 
     @Test
     public void remove() {
-        mongoTemplate.remove(Query.query(where("business").ne("bb545405-85b0-4243-873d-a52cfdf14cac")),"DeviceStatus");
+        mongoTemplate.remove(Query.query(where("business").ne("bb545405-85b0-4243-873d-a52cfdf14cac")), "DeviceStatus");
     }
 
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection="DeviceStatus")
+@Document(collection = "DeviceStatus")
 public class DeviceStatus implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

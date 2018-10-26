@@ -25,28 +25,28 @@ public class GsonTests {
 
         ClassPathResource resource = new ClassPathResource("BootVideo.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(resource.getInputStream()));
-        StringBuffer message=new StringBuffer();
+        StringBuffer message = new StringBuffer();
         String line = null;
-        while((line = br.readLine()) != null) {
+        while ((line = br.readLine()) != null) {
             message.append(line);
         }
 
         System.out.println(message.toString());
         JsonObject returnData = new JsonParser().parse(message.toString()).getAsJsonObject();
-        RoomStatusSyncConfig model = new Gson().fromJson(returnData,RoomStatusSyncConfig.class);
+        RoomStatusSyncConfig model = new Gson().fromJson(returnData, RoomStatusSyncConfig.class);
         System.out.println(model.getNsqAdminUrl());
 
     }
 
     @Test
-    public void stringToMap(){
+    public void stringToMap() {
 
         String jsonString = "";
         Gson gson = new Gson();
         Map<String, Object> map = new HashMap<String, Object>();
         map = gson.fromJson(jsonString, map.getClass());
-        String goodsid=(String) map.get("goods_id");
-        System.out.println("map的值为:"+goodsid);
+        String goodsid = (String) map.get("goods_id");
+        System.out.println("map的值为:" + goodsid);
     }
 
     public static void main(String[] args) {
@@ -103,25 +103,25 @@ public class GsonTests {
     }
 
     @Test
-    public void createJson(){
+    public void createJson() {
         JsonObject jsonObj = new JsonObject();
-        jsonObj.addProperty("action","tvyuyin.channeldataupdate");
-        jsonObj.addProperty("timestamp",new java.util.Date().getTime());
-        jsonObj.addProperty("Key",UUID.randomUUID()+"");
+        jsonObj.addProperty("action", "tvyuyin.channeldataupdate");
+        jsonObj.addProperty("timestamp", new java.util.Date().getTime());
+        jsonObj.addProperty("Key", UUID.randomUUID() + "");
         JsonObject jsonObj2 = new JsonObject();
-        jsonObj2.addProperty("child","child");
-        jsonObj.add("data",jsonObj2);
+        jsonObj2.addProperty("child", "child");
+        jsonObj.add("data", jsonObj2);
 
         System.out.println(new Gson().toJson(jsonObj));
     }
 
 
     @Test
-    public void test(){
+    public void test() {
         Set<String> gateMessage = new HashSet<String>();
         gateMessage.add("as");
         gateMessage.add("as1");
-        String[] sy =  gateMessage.toArray(new String[gateMessage.size()]);
+        String[] sy = gateMessage.toArray(new String[gateMessage.size()]);
         System.out.println(Arrays.toString(sy));
 
         gateMessage = new HashSet<String>();
@@ -131,7 +131,7 @@ public class GsonTests {
     }
 
     @Test
-    public void  getKey(){
+    public void getKey() {
         JsonObject jsonObj = new JsonObject();
         com.google.gson.JsonObject info = jsonObj.getAsJsonObject("props");
 

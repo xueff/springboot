@@ -10,10 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 @SpringBootApplication
-public class MySpringbootApplication{
+public class MySpringbootApplication {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SpringApplication application = new SpringApplication(MySpringbootApplication.class);
         application.run(args);
     }

@@ -34,21 +34,15 @@ public class JavaFuture {
         System.out.println("end");
 
 
-
-
-
-
-
-
     }
 
     private static void getFuture(Future<String> f) throws ExecutionException, InterruptedException {
         System.out.println("method--getFuture");
-        for (;;){
-            if( f.isDone()){
-                System.out.println("结果"+f.get());
+        for (; ; ) {
+            if (f.isDone()) {
+                System.out.println("结果" + f.get());
                 break;
-            }else{
+            } else {
                 System.out.println("。。。");
             }
 
