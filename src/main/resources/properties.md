@@ -54,6 +54,14 @@ spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.Ph
 #显示sql
 spring.jpa.show-sql=true
 ```
+```properties
+spring.datasource.url=jdbc:sqlserver://ip:port;databaseName=name;
+spring.datasource.username=name
+spring.datasource.password=pass
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+#spring.jpa.database = sql_server
+spring.jpa.show-sql = true
+```
 
 # Mongo
 
