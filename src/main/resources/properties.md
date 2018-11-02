@@ -1,3 +1,9 @@
+# 
+```properties
+#开启环境
+spring.profiles.active = base
+```
+
 # 项目访问路径
 ```properties
 server.port=8081
